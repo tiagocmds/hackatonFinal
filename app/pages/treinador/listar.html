@@ -1,0 +1,43 @@
+<div class="row" ng-controller="listarTreinadorController as vm">
+        <table class="table table-striped">
+            <thead>
+                <th class="tCenter">#</th>
+                <th class="tLeft">Nome</th>
+                <th class="tCenter">Pokemons</th>
+                <th class="tRight">Ação</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="treinador in vm.treinadorService.listaTreinadores track by $index">
+                    <td class="tCenter">{{treinador.id}}</td>
+                    <td class="tLeft">{{treinador.nome}}</td>
+                    <td class="tCenter">
+                        <ul>
+                            <li ng-repeat="pokemon in vm.treinador.listaPokemons">
+                                {{pokemon.nome}}
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="tRight">
+                        <button class="btn btn-danger" ng-click="vm.excluir($index)">X</button>
+                        <button class="btn btn-success" ng-click="vm.editar(pokemon)">Editar</button>
+                    </td>
+                </tr>
+                <tr ng-show="!vm.treinadorService.listaTreinadores.length" class="tCenter">
+                    <td colspan="4">
+                        Nenhum Treinador cadastrado!
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn btn-outline-primary" ng-click="vm.irTelaCadastrar()">[+] Novo Treinador</button>
+            </div>
+            <div class="col-sm-6">
+                <a class="link" href="#!/home">Voltar</a>
+            </div>
+            <div class="col-sm 6">
+                <button class="btn btn-success" ng-click="vm.batalhar()">BATALHAR!</button>
+            </div>
+        </div>
+    </div>

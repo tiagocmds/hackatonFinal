@@ -1,0 +1,37 @@
+<html ng-app="pokemonApp">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./app/js/assets/popper.mim.js"></script>
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="./node_modules/angular/angular.min.js"></script>
+        <script src="./node_modules/angular-route/angular-route.min.js"></script>
+        
+        <!-- Desenvolvimento -->
+        <script src≃"//localhost:35729/livereload.js"></script>
+        <link rel="stylesheet" href="./app/css/style.css">       
+        <script src="./app/js/app.js"></script>
+        <script src="./app/js/constants/constants.js"></script>
+        <script src="./app/js/directives/modal.directive.js"></script>
+        <script src="./app/js/directives/dropdown.directive.js"></script>
+        <script src="./app/js/services/pokemon.service.js"></script>
+        <script src="./app/js/services/treinador.service.js"></script>
+        <script src="./app/js/controllers/login.controller.js"></script>
+        <script src="./app/js/controllers/listarPokemon.controller.js"></script>
+        <script src="./app/js/controllers/cadastrarPokemon.controller.js"></script>
+        <script src="./app/js/controllers/listarTreinador.controller.js"></script>
+        <script src="./app/js/controllers/cadastrarTreinador.controller.js"></script>
+        <!-- Produção -->
+        <!--<link rel="stylesheet" href="./css/style.min.css">
+        <script src="./js/build.min.js"></script>-->
+        
+
+ 
+    </head>
+    <body>
+        <div class="container">
+            <ng-view></ng-view>
+        </div>
+    </body>
+</html>

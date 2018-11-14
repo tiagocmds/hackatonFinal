@@ -1,0 +1,17 @@
+<div class="row">
+    <form name="formCadastrar" ng-submit="inserir(pokemon)">
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" class="form-control" ng-required="true" ng-model="pokemon.nome">
+        </div>
+        <div class="form-group">
+            <label>Tipo:</label>
+            <select class="form-control" ng-model="pokemon.tipo" ng-required="true"
+                ng-options="tipo as tipo.descricao for tipo in service.listaTipos track by tipo.codigo">
+                <option value="">Selecione</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary" ng-disabled="formCadastrar.$invalid" type="submit">Inserir</button>
+    </form>
+</div>

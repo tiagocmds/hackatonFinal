@@ -1,0 +1,23 @@
+.container {
+    margin-top: 10%;
+    width: 800px !important;
+}
+
+.tCenter {
+    text-align: center;
+}
+
+.tLeft {
+    text-align: left;
+}
+
+.tRight {
+    text-align: right;
+}
+.ng-invalid-required input {
+    border: 1px solid #ff0000;
+}
+
+.card-body-h200 {
+    height: 200px;
+}

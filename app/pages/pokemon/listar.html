@@ -1,0 +1,41 @@
+<div class="row" ng-controller="listarPokemonController as vm" ng-init="vm.init()">
+        <table class="table table-striped">
+            <thead>
+                <th class="tCenter">#</th>
+                <th class="tLeft">Nome</th>
+                <th class="tCenter">Tipo</th>
+                <th class="tRight">AÃ§Ã£o</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pokemon in vm.service.listaPokemons track by $index">
+                    <td class="tCenter">{{pokemon.id}}</td>
+                    <td class="tLeft">{{pokemon.nome}}</td>
+                    <td class="tCenter">{{pokemon.tipo.descricao}}</td>
+                    <td class="tRight">
+                        <!-- <button class="btn btn-danger">X</button>
+                        <button class="btn btn-success" ng-click="vm.editar(pokemon)">âœ�ï¸�</button> -->
+                        <pokemon-dropdown-menu>
+                            <a class="dropdown-item" ng-click="vm.editar(pokemon)">Editar</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#modal-excluir-pokemon"
+                                ng-click="vm.idSelecionado = pokemon.id">Excluir</a>
+                        </pokemon-dropdown-menu>
+                    </td>
+                </tr>
+                <tr ng-show="!vm.service.listaPokemons.length" class="tCenter">
+                    <td colspan="4">
+                        Nenhum Pokemon cadastrado!
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-outline-primary" ng-click="vm.irTelaCadastrar()">[+] Novo Pokemon</button>
+        <a class="link" href="#!/home">Voltar</a>
+
+
+        <pokemon-modal id-modal="modal-excluir-pokemon" titulo-modal="ConfirmaÃ§Ã£o de ExclusÃ£o"
+            tamanho="modal-sm" callback-confirmar="vm.excluir(vm.idSelecionado)">
+
+            <b>Deseja excluir esse pokemon?</b>
+
+        </pokemon-modal>
+    </div>

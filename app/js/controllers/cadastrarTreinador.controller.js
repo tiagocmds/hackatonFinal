@@ -4,33 +4,30 @@ angular.module("pokemonApp")
         cadastrarTreinadorController.$inject = ['$scope', "$rootScope", "$location", "pokemonService", "treinadorService"];
 
         function cadastrarTreinadorController($scope, $rootScope, $location, pokemonService, treinadorService) {
-            $scope.contadorId = 1;
             $scope.pokemonService = pokemonService;
             $scope.treinadorService = treinadorService;
             $scope.treinador = $scope.pokemonService.treinador;
     
             $scope.inserir = function(treinador){
                 if (treinador.id) {
-                    var treinadorAlterado = $scope.treinadorService.listaTreinadores
-                        .filter(
-                            function(treinadorItem) {
-                                if (treinadorItem.id === treinador.id) {
-                                    
-                                    return treinadorItem;
-                                    
-                                }
-                        });
                     
-                    var index = $scope.treinadorService.listaTreinadores.indexOf(treinadorAlterado[0]);
-                    $scope.treinador.treinadorService.splice(index, 1, treinador);
-                
+                    $scope.service.alterar(treinador)
+                    .then(function(response) {
+                        console.log(response.data);
+                        
+                    }, function(error) {
+                        console.log(error);
+                    });
+                    
                 } else {
-                    
-                    treinador.id = ++$scope.contadorId;
-                    $scope.treinadorService.listaTreinadores.push(angular.copy(treinador));  
-                          
+                    $scope.service.cadastrar(treinador)
+                    .then(function(response) {
+                        console.log(response.data);
+                    }, function(error) {
+                        console.log(error);
+                    });
                 }
-    
+
                 $scope.treinador = {};
                 $scope.treinadorService.treinador = {};
                 $location.path("/treinador/listar");

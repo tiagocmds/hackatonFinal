@@ -16,6 +16,7 @@ import com.stefanini.pokemon.enums.EnumTipoPokemon;
 public class BaseDados {
 	Set<Usuario> usuarios = new HashSet<>();
 	Set<Pokemon> pokemons = new HashSet<>();
+	Set<Treinador> treinadores = new HashSet<>();
 	
 	@PostConstruct
 	public void init() {
@@ -88,6 +89,33 @@ public class BaseDados {
 		pokemon.setNome(dto.getNome());
 		pokemon.setTipo(new TipoPokemon(dto.getTipo()));
 		return pokemon;
+	}
+	public Set<Pokemon> listarTreinadores() {
+		return treinadores;
+	}
+	public void excluirTreinador(Long id) {
+		treinadores.remove(obterTreinador(id));	
+	}
+	public Treinador obterTreinador(Long id) {
+		for (Treinador treinador : treinadores) {
+			if (id.equals(treinador.getId())) {
+				return treinador;
+			}
+		}
+		
+		return null;
+	}
+	public Treinador alterar(TreinadorDTO dto) {
+		Treinador treinador = obterTreinador(dto.getId());
+		treinador.setNome(dto.getNome());
+		treinador.setSenha(dto.getSenha());
+		treinador.setPokemonsCapturados(dto.getPokemonsCapturados())
+		return treinador;
+	} 
+	public Treinador salvar(Treinador treinador) {
+		treinador.setId((long)treinadores.size()+1);
+		treinadores.add(treinador);
+		return treinador;
 	}
 	
 }

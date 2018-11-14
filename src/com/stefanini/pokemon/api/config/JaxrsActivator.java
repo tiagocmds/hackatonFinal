@@ -19,6 +19,7 @@ public class JaxrsActivator extends Application {
 		classes.add(LoginApi.class);
 		classes.add(UsuarioApi.class);
 		classes.add(PokemonApi.class);
+		classes.add(TreinadorApi.class);
 		
 	}
 	

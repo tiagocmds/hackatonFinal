@@ -12,6 +12,7 @@ public class TreinadorParser extends AbstractParser<TreinadorDTO, Treinador> {
 		dto.setId(entity.getId());
 		dto.setNome(entity.getNome());
 		dto.setSenha(entity.getSenha());
+		dto.setPokemonsCapturados(entity.getPokemonsCapturados());
 		return dto;
 	}
 
@@ -20,7 +21,8 @@ public class TreinadorParser extends AbstractParser<TreinadorDTO, Treinador> {
 		Treinador user = new Treinador();
 		user.setId(dto.getId());
 		user.setNome(dto.getNome());
-		user.setSenha(dto.getSenha() );
+		user.setSenha(dto.getSenha());
+		user.setPokemonsCapturados(dto.getPokemonsCapturados());
 		return user;
 	}
 

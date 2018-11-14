@@ -11,6 +11,26 @@ angular.module("pokemonApp")
         
         return {
             listaTreinadores: _listaTreinadores,
-            treinador: _treinador
+            treinador: _treinador,
+
+            listar: function() {
+                return $http.get(constantes.baseUrl + "/treinador");
+            },
+            cadastrar: function(pokemon) {
+                return $http.post(constantes.baseUrl + "/treinador", treinador);
+            },
+            obter: function(id) {
+                return $http.get(constantes.baseUrl + "/treinador/obter/" + id);
+            },
+            excluir: function(id) {
+                return $http.delete(constantes.baseUrl + "/treinador", {
+                    params: {
+                        id: id
+                    }
+                });
+            },
+            alterar: function(pokemon) {
+                return $http.put(constantes.baseUrl + "/treinador", treinador);
+            }  
         };
     }

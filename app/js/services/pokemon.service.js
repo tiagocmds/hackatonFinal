@@ -5,7 +5,6 @@ angular.module("pokemonApp")
 
     function pokemonService($http, constantes) {
         var _pokemon = null;
-        
         var _listaTipos = [
             {codigo: 1, descricao: "Raio"},
             {codigo: 2, descricao: "Fogo"},

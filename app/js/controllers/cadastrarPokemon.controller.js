@@ -4,7 +4,6 @@
         cadastrarPokemonController.$inject = ['$scope', "$rootScope", "$location", "pokemonService"];
 
         function cadastrarPokemonController($scope, $rootScope, $location, pokemonService) {
-            $scope.contadorId = 2;
             $scope.service = pokemonService;
             $scope.pokemon = $scope.service.pokemon;
             
